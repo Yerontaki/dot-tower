@@ -51,8 +51,10 @@ cd dot-tower
 
 The script will:
 - ✅ Create symlinks to all configs
-- ✅ Backup existing configs with `.backup.TIMESTAMP`
+- ✅ **Overwrite** existing configs (no backups!)
 - ✅ Work on any machine without hardcoded paths
+
+**⚠️ Warning:** This will replace your existing configs without backup. Make sure to backup manually if needed!
 
 ## 🔄 Update
 
@@ -69,6 +71,7 @@ Changes will apply immediately since configs are symlinked!
 - Catppuccin Frappe theme throughout
 - Optimized for Arch Linux + niri
 - Wayland-native setup
+- **No backups** - configs are overwritten on install
 
 ## 🛠️ Requirements
 

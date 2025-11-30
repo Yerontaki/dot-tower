@@ -11,23 +11,14 @@ NC='\033[0m'
 
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-# Backup function
-backup_if_exists() {
-    if [ -e "$1" ] && [ ! -L "$1" ]; then
-        echo -e "${YELLOW}📦 Backing up existing $1${NC}"
-        mv "$1" "$1.backup.$(date +%Y%m%d_%H%M%S)"
-    fi
-}
-
 # Symlink function
 create_symlink() {
     local source="$1"
     local target="$2"
     
-    backup_if_exists "$target"
-    
-    if [ -L "$target" ]; then
-        rm "$target"
+    # Remove existing file/directory/symlink
+    if [ -e "$target" ] || [ -L "$target" ]; then
+        rm -rf "$target"
     fi
     
     mkdir -p "$(dirname "$target")"
@@ -64,5 +55,4 @@ fi
 echo ""
 echo -e "${GREEN}✨ Dotfiles installation complete!${NC}"
 echo ""
-echo "Note: Your old configs were backed up with .backup.TIMESTAMP extension"
 echo "Run 'source ~/.bashrc' to reload your shell configuration"
