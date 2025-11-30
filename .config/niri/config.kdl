@@ -1,0 +1,298 @@
+prefer-no-csd
+
+environment {
+	XCURSOR_THEME "Bibata-Modern-Ice"
+	XCURSOR_SIZE "24"
+}
+
+input {
+	keyboard {
+		repeat-rate 30
+		repeat-delay 350
+		xkb {
+			layout "us,gr"
+			options "grp:caps_toggle"
+		}
+	}
+
+	touchpad {
+		// off
+		tap
+		dwt
+		accel-speed -0.3
+		//accel-profile "flat"
+		disabled-on-external-mouse
+	}
+
+	mouse {
+		// off
+		accel-speed 0.2
+		// accel-profile "flat"
+	}
+
+	warp-mouse-to-focus
+	focus-follows-mouse max-scroll-amount="0%"
+}
+
+
+
+output "DP-3" {
+	mode "2560x1440@165.000"
+	position x=0 y=0
+	scale 1
+	transform "normal"
+}
+
+output "HDMI-A-1" {
+	// off
+	scale 1.0
+	// transform "90"
+	position x=-3456 y=0
+	mode "2560x1440@165"
+	// variable-refresh-rate
+}
+
+layout {
+	gaps 2
+
+	// When to center a column when changing focus, options are:
+	// - "never", default behavior, focusing an off-screen column will keep at the left
+	//   or right edge of the screen.
+	// - "always", the focused column will always be centered.
+	// - "on-overflow", focusing a column will center it if it doesn't fit
+	//   together with the previously focused column.
+	center-focused-column "never"
+
+	preset-column-widths {
+		proportion 0.33333
+		proportion 0.5
+		proportion 0.66667
+		fixed 3456
+	}
+
+	default-column-width { proportion 0.5; }
+
+	focus-ring {
+		width 1
+		urgent-color "#E78284"
+		inactive-color "#51576D"
+		active-color "#8CAAEE"
+	}
+
+	// You can also add a border. It's similar to the focus ring, but always visible.
+	border {
+		//off
+
+		width 1
+		active-color "#8CAAEE"
+		inactive-color "#51576D"
+		urgent-color "#E78284"
+	}
+
+	shadow {
+		on
+		draw-behind-window true
+		softness 25
+		spread 4
+		offset x=0 y=3
+		color "#0007"
+	}
+
+	struts {
+		left 10
+		right 10
+		top 10
+		bottom 5
+	}
+
+}
+
+spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+spawn-sh-at-startup "gnome-keyring-daemon --start --components=secrets,ssh,pkcs11"
+spawn-at-startup "nm-applet"
+spawn-at-startup "blueman-applet"
+spawn-at-startup "mako"
+spawn-at-startup "steam" "-silent"
+
+spawn-sh-at-startup "wl-paste --watch cliphist store"
+spawn-sh-at-startup "gsettings set org.gnome.desktop.interface cursor-theme 'Bibata-Modern-Ice'"
+spawn-sh-at-startup "gsettings set org.gnome.desktop.interface cursor-size 24"
+spawn-sh-at-startup "waybar -c ~/.config/waybar/config.json"
+spawn-sh-at-startup "swaybg -i ~/Media/Wallpapers/wallp1.png"
+spawn-sh-at-startup r#"swayidle -w timeout 300 'if ! pgrep -x qutebrowser > /dev/null; then niri msg action power-off-monitors && swaylock -f -i ~/Media/Wallpapers/wallp1.png --indicator-radius 100 --indicator-thickness 7 --ring-color 8caaee --inside-color 303446cc --text-color c6d0f5 --line-color 303446 --separator-color 00000000 --key-hl-color a6d189 --bs-hl-color e78284 --ring-ver-color 8caaee --inside-ver-color 8caaee33 --ring-wrong-color e78284 --inside-wrong-color e7828433 --ring-clear-color 81c8be --inside-clear-color 81c8be33; fi' resume 'niri msg action power-on-monitors' timeout 600 'if ! pgrep -x qutebrowser > /dev/null; then systemctl suspend; fi' before-sleep 'swaylock -f -i ~/Media/Wallpapers/wallp1.png --indicator-radius 100 --indicator-thickness 7 --ring-color 8caaee --inside-color 303446cc --text-color c6d0f5 --line-color 303446 --separator-color 00000000 --key-hl-color a6d189 --bs-hl-color e78284 --ring-ver-color 8caaee --inside-ver-color 8caaee33 --ring-wrong-color e78284 --inside-wrong-color e7828433 --ring-clear-color 81c8be --inside-clear-color 81c8be33'"#
+
+
+hotkey-overlay {
+	skip-at-startup
+}
+
+screenshot-path "~/Media/Screenshots/Screenshot from %H-%M-%S %d-%m-%Y.png"
+// screenshot-path null
+
+// Animation settings.
+animations {
+	// off
+	slowdown 2.0
+}
+
+window-rule {
+	geometry-corner-radius 14
+	clip-to-geometry true
+	tiled-state true
+	//open-maximized true
+}
+
+window-rule {
+	match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+	match app-id=r#"^org\.gnome\.World\.Secrets$"#
+	block-out-from "screen-capture"
+}
+
+window-rule {
+	match app-id=r#"^steam_app_"#
+	open-fullscreen true
+}
+
+window-rule {
+	match app-id="steam"
+	open-on-workspace "5"
+}
+
+binds {
+	Super+c { spawn "ghostty" "-e" "nvim" "~/Developer"; }
+	Super+e { spawn-sh "EDITOR=nvim ghostty -e yazi $PWD"; }
+	Super+Return { spawn "ghostty"; }
+	Super+Shift+e { spawn "nemo"; }
+	Super+x { spawn-sh "QT_QPA_PLATFORM=wayland qutebrowser"; }
+	Super+m { spawn "thunderbird"; }
+	Super+g { spawn "github-desktop"; }
+	Super+Shift+x { spawn "brave"; }
+
+	XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
+	XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
+	XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+	XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+
+	Alt+Tab repeat=false { toggle-overview; }
+	Mod+Q repeat=false { close-window; }
+
+	// Εντολές μετακίνησης παραθύρου/στήλης με Mod+Shift
+	Mod+Shift+Left   { move-column-left; }
+	Mod+Shift+Down   { move-column-to-workspace-down; }
+	Mod+Shift+Up     { move-column-to-workspace-up; }
+	Mod+Shift+Right  { move-column-right; }
+
+	// Εναλλακτική με Vim-style πλήκτρα (HJKL)
+	Mod+Shift+H      { move-column-left; }
+	Mod+Shift+K      { move-column-to-workspace-down; }
+	Mod+Shift+J      { move-column-to-workspace-up; }
+	Mod+Shift+L      { move-column-right; }
+
+	Mod+Home { focus-column-first; }
+	Mod+End { focus-column-last; }
+	Mod+Shift+Home { move-column-to-first; }
+	Mod+Shift+End { move-column-to-last; }
+
+	// Εστίαση σε στήλη/παράθυρο (Left/Right) και Workspace (Up/Down) με τα βέλη
+	Mod+Down      { focus-workspace-down; }
+	Mod+Up        { focus-workspace-up; }
+	Mod+Left      { focus-column-left; }
+	Mod+Right     { focus-column-right; }
+
+	// Προσθήκη Vim Motion για Εστίαση (HJKL)
+	Mod+K { focus-workspace-down; }
+	Mod+J { focus-workspace-up; }
+	Mod+H { focus-column-left; }
+	Mod+L { focus-column-right; }
+
+	// You can bind mouse wheel scroll ticks using the following syntax.
+	// These binds will change direction based on the natural-scroll setting.
+	//
+	// To avoid scrolling through workspaces really fast, you can use
+	// the cooldown-ms property. The bind will be rate-limited to this value.
+	// You can set a cooldown on any bind, but it's most useful for the wheel.
+	Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
+	Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
+	Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
+	Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
+
+	Mod+WheelScrollRight      { focus-column-right; }
+	Mod+WheelScrollLeft       { focus-column-left; }
+	Mod+Ctrl+WheelScrollRight { move-column-right; }
+	Mod+Ctrl+WheelScrollLeft  { move-column-left; }
+
+	// Usually scrolling up and down with Shift in applications results in
+	// horizontal scrolling; these binds replicate that.
+	Mod+Shift+WheelScrollDown      { focus-column-right; }
+	Mod+Shift+WheelScrollUp        { focus-column-left; }
+	Mod+Ctrl+Shift+WheelScrollDown { move-column-right; }
+	Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }
+
+	// Change Audio vol.
+	// Mod+TouchpadScrollDown { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02+"; }
+	// Mod+TouchpadScrollUp   { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02-"; }
+
+	// Workspaces
+	Mod+1 { focus-workspace 1; }
+	Mod+2 { focus-workspace 2; }
+	Mod+3 { focus-workspace 3; }
+	Mod+4 { focus-workspace 4; }
+	Mod+5 { focus-workspace 5; }
+	Mod+6 { focus-workspace 6; }
+	Mod+7 { focus-workspace 7; }
+	Mod+8 { focus-workspace 8; }
+	Mod+9 { focus-workspace 9; }
+	Mod+Shift+1 { move-column-to-workspace 1; }
+	Mod+Shift+2 { move-column-to-workspace 2; }
+	Mod+Shift+3 { move-column-to-workspace 3; }
+	Mod+Shift+4 { move-column-to-workspace 4; }
+	Mod+Shift+5 { move-column-to-workspace 5; }
+	Mod+Shift+6 { move-column-to-workspace 6; }
+	Mod+Shift+7 { move-column-to-workspace 7; }
+	Mod+Shift+8 { move-column-to-workspace 8; }
+	Mod+Shift+9 { move-column-to-workspace 9; }
+
+	// The following binds move the focused window in and out of a column.
+	Mod+BracketLeft  { consume-or-expel-window-left; }
+	Mod+BracketRight { consume-or-expel-window-right; }
+	Mod+Comma  { consume-window-into-column; }
+	Mod+Period { expel-window-from-column; }
+
+	Mod+R { reset-window-height; }
+	Mod+F { maximize-column; }
+	Mod+Shift+F { fullscreen-window; }
+
+	Mod+Alt+C { center-column; }
+
+	// Center all fully visible columns on screen.
+	Mod+Ctrl+C { center-visible-columns; }
+
+	Mod+Minus { set-column-width "-5%"; }
+	Mod+Equal { set-column-width "+5%"; }
+
+	Mod+Shift+Minus { set-window-height "-5%"; }
+	Mod+Shift+Equal { set-window-height "+5%"; }
+
+	// Move the focused window between the floating and the tiling layout.
+	Mod+V       { toggle-window-floating; }
+
+	// Toggle tabbed column display mode.
+	// Windows in this column will appear as vertical tabs,
+	// rather than stacked on top of each other.
+	Mod+W { toggle-column-tabbed-display; }
+
+	// Rofi launcher toggle
+	Mod+Space { spawn-sh "pkill rofi || rofi -show drun"; }
+
+	Mod+S { screenshot; }
+	Mod+Shift+S { screenshot-screen; }
+	Mod+Ctrl+S { screenshot-window; }
+
+
+	// The quit action will show a confirmation dialog to avoid accidental exits.
+	Mod+Shift+R { quit; }
+	Mod+Shift+Q { suspend; }
+
+	// Powers off the monitors.
+	Mod+P { power-off-monitors; }
+}

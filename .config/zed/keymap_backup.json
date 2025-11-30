@@ -1,0 +1,93 @@
+[
+  // --- GLOBAL SHORTCUTS (Δουλεύουν ΠΑΝΤΟΥ: Editor, Terminal, Empty Screen) ---
+  {
+    "context": "Workspace",
+    "bindings": {
+      // Εμφάνιση/Απόκρυψη Panels
+      "ctrl-z": "workspace::ToggleLeftDock",   // Project Panel
+      "ctrl-a": "workspace::ToggleRightDock",  // Assistant Panel
+      "ctrl-x": "terminal_panel::Toggle",      // Terminal Panel
+
+      // Πλοήγηση ανάμεσα στα Panels (Focus)
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-j": "workspace::ActivatePaneUp",
+      "ctrl-k": "workspace::ActivatePaneDown"
+    }
+  },
+
+  // --- VIM NAVIGATION (j/k) ---
+  {
+    "context": "Editor && (vim_mode == normal || vim_mode == visual)",
+    "bindings": {
+      "j": "editor::MoveUp", // Προσοχή: Στο Vim το j είναι κάτω, αλλά εσύ το έχεις Up. Σίγουρα το θες έτσι; (Συνήθως j=down, k=up)
+      "k": "editor::MoveDown"
+    }
+  },
+
+  // --- EDITOR NORMAL MODE (Command Palette) ---
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      // Βασικά
+      "space a a": "editor::SelectAll",
+      "space f": "editor::Format",
+      "space v": "pane::SplitVertical",
+      "space h": "pane::SplitHorizontal",
+      "space q": "pane::CloseActiveItem",
+      
+      // Refactoring & Go Tools (ΝΕΟ!)
+      "space r n": "editor::Rename",          // Rename Symbol (F2)
+      "space c a": "editor::ToggleCodeActions", // Code Actions (Imports, JSON tags)
+      "space d d": "editor::Hover",           // Show documentation
+      "g d": "editor::GoToDefinition",        // (Υπάρχει ήδη αλλά καλό να το θυμάσαι)
+
+      // Resize Panes
+      "alt-h": "vim::ResizePaneLeft",
+      "alt-l": "vim::ResizePaneRight",
+      "alt-j": "vim::ResizePaneUp",
+      "alt-k": "vim::ResizePaneDown",
+
+      // Tab Navigation
+      "shift-h": "pane::ActivatePreviousItem",
+      "shift-l": "pane::ActivateNextItem",
+
+      // Search / Files
+      "space s f": "file_finder::Toggle",
+      "space s w": "workspace::NewSearch",    // Global Search
+      "space s t": "buffer_search::Deploy",   // Search in file
+      "space s o": "file_finder::Toggle",
+      "space x": "diagnostics::Deploy"
+    }
+  },
+
+  // --- EDITOR INSERT MODE (Quick Nav) ---
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      "j k": "vim::NormalBefore" // Έξοδος από Insert με jk
+    }
+  },
+
+  // --- TERMINAL ---
+  {
+    "context": "Terminal",
+    "bindings": {
+       // Εδώ δεν χρειάζεται να ξαναβάλεις τα ctrl-z/a/x, τα παίρνει από το Workspace!
+       // Κρατάμε μόνο τα terminal specific αν θες κάτι ειδικό.
+    }
+  },
+
+  // --- PROJECT PANEL (File Tree) ---
+  {
+    "context": "ProjectPanel",
+    "bindings": {
+      "h": "project_panel::CollapseSelectedEntry", // Κλείσιμο φακέλου
+      "l": "project_panel::ExpandSelectedEntry",   // Άνοιγμα φακέλου
+      "j": "menu::SelectNext",                     // Κάτω
+      "k": "menu::SelectPrev",                     // Πάνω
+      "enter": "project_panel::Open",              // Άνοιγμα αρχείου
+      "space e": "workspace::ToggleLeftDock"       // Κλείσιμο με space e (αν θες)
+    }
+  }
+]

@@ -1,0 +1,20 @@
+# Cache and temporary files
+**/__pycache__/
+**/*.pyc
+**/.cache/
+**/watch_later/
+**/*.bak
+**/*.backup.*
+
+# Auto-generated configs
+.config/qutebrowser/autoconfig.yml
+.config/qutebrowser/qsettings/
+.config/nvim/lazy-lock.json
+
+# Sensitive data
+**/*.log
+**/*.lock
+
+# OS files
+.DS_Store
+Thumbs.db

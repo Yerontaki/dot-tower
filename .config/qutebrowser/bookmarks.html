@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="el">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookmarks • Catppuccin Frappé</title>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <link
+      href="https://cdn.jsdelivr.net/gh/ryanoasis/nerd-fonts@latest/patched-fonts/CascadiaCode/CaskaydiaCoveNerdFont-Complete.css"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --rosewater: #f2d5cf;
+        --flamingo: #eebebe;
+        --pink: #f4b8e4;
+        --mauve: #ca9ee6;
+        --red: #e78284;
+        --maroon: #ea999c;
+        --peach: #ef9f76;
+        --yellow: #e5c890;
+        --green: #a6d189;
+        --teal: #81c8be;
+        --sky: #99d1db;
+        --sapphire: #85c1dc;
+        --blue: #8caaee;
+        --lavender: #babbf1;
+        --text: #c6d0f5;
+        --subtext0: #a5adce;
+        --overlay1: #838ba7;
+        --overlay0: #73799a;
+        --surface2: #626880;
+        --surface1: #51576d;
+        --surface0: #414559;
+        --base: #303446;
+        --mantle: #292c3c;
+        --crust: #232634;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background: var(--base);
+        color: var(--text);
+        font-family: "CaskaydiaCove Nerd Font", "JetBrains Mono", monospace;
+        min-height: 100vh;
+        padding: 2rem 1.5rem;
+        line-height: 1.5;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      header {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+      h1 {
+        font-size: 2.5rem;
+        font-weight: 300;
+        color: var(--rosewater); /* ← ΑΛΛΑΓΗ εδώ */
+        letter-spacing: -1.5px;
+      }
+      .subtitle {
+        color: var(--subtext0);
+        font-size: 1rem;
+        margin-top: 0.5rem;
+        opacity: 0.9;
+      }
+      /* Search */
+      .search-container {
+        max-width: 640px;
+        width: 100%;
+        margin: 0 auto 2.5rem;
+        position: relative;
+      }
+      #search {
+        width: 100%;
+        padding: 0.8rem 1.2rem 0.8rem 3rem;
+        font-size: 1rem;
+        background: var(--mantle);
+        border: 2px solid var(--surface1);
+        border-radius: 16px;
+        color: var(--text);
+        outline: none;
+        transition: all 0.3s ease;
+      }
+      #search:focus {
+        border-color: var(--blue);
+        box-shadow: 0 0 0 6px rgba(140, 170, 238, 0.15);
+      }
+      .search-icon {
+        position: absolute;
+        left: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--overlay1);
+        font-size: 1.3rem;
+        pointer-events: none;
+      }
+      /* Grid */
+      .bookmarks {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1.2rem;
+        max-width: 1600px;
+        width: 100%;
+      }
+      .category {
+        background: var(--mantle);
+        border-radius: 16px;
+        padding: 1.2rem 1rem;
+        border: 1.5px solid var(--surface0);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+        transition: all 0.3s ease;
+      }
+      .category:hover {
+        transform: translateY(-6px);
+        border-color: var(--surface2);
+        box-shadow: 0 16px 45px rgba(0, 0, 0, 0.35);
+      }
+      .category h2 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--mauve);
+        margin-bottom: 1rem;
+        text-align: center;
+        padding-bottom: 0.7rem;
+        border-bottom: 1.5px solid var(--surface1);
+      }
+      .category ul {
+        list-style: none;
+        display: grid;
+        gap: 0.6rem;
+      }
+      /* Κεντραρισμένα links */
+      .category a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.1rem;
+        height: 58px;
+        color: var(--blue); /* ← ΑΛΛΑΓΗ εδώ */
+        text-decoration: none;
+        padding: 0.7rem;
+        border-radius: 12px;
+        transition: all 0.3s ease;
+      }
+      .category a:hover {
+        background: var(--surface0);
+        color: var(--lavender);
+        transform: scale(1.04);
+      }
+      .icon {
+        font-size: 1.5rem;
+        opacity: 0.92;
+      }
+      .link-title {
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+      footer {
+        margin-top: 3rem;
+        color: var(--overlay0);
+        font-size: 0.85rem;
+        text-align: center;
+        opacity: 0.8;
+      }
+      @media (max-width: 640px) {
+        .bookmarks {
+          grid-template-columns: 1fr;
+        }
+        h1 {
+          font-size: 3.4rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ο υπόλοιπος κώδικας παραμένει ΑΚΡΙΒΩΣ ίδιος -->
+    <header>
+      <h1>Bookmarks</h1>
+    </header>
+    <div class="bookmarks">
+      <!-- Entertainment -->
+      <div class="category">
+        <h2>Entertainment</h2>
+        <ul>
+          <li>
+            <a href="https://google.com"              ><span class="icon">Google</span></a
+            >
+          </li>
+          <li>
+            <a href="https://youtube.com"              ><span class="icon">YouTube</span></a
+            >
+          </li>
+          <li>
+            <a href="https://twitch.tv"              ><span class="icon">Twitch</span></a
+            >
+          </li>
+          <li>
+            <a href="https://netflix.com"              ><span class="icon">Netflix</span></a
+            >
+          </li>
+          <li>
+            <a href="https://open.spotify.com"              ><span class="icon">Spotify</span></a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <!-- Social & Content -->
+      <div class="category">
+        <h2>Social & Content</h2>
+        <ul>
+          <li>
+            <a href="https://x.com"              ><span class="icon">Twitter</span></a
+            >
+          </li>
+          <li>
+            <a href="https://reddit.com"              ><span class="icon">Reddit</span></a
+            >
+          </li>
+          <li>
+            <a href="https://discord.com"              ><span class="icon">Discord</span></a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <!-- AI -->
+      <div class="category">
+        <h2>AI</h2>
+        <ul>
+          <li>
+            <a href="https://claude.ai"              ><span class="icon">Claude</span></a
+            >
+          </li>
+          <li>
+            <a href="https://gemini.google.com"              ><span class="icon">Gemini</span></a
+            >
+          </li>
+          <li>
+            <a href="https://x.com/i/grok"              ><span class="icon">Grok</span></a
+            >
+          </li>
+          <li>
+            <a href="https://chatgpt.com"              ><span class="icon">ChatGPT</span></a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <!-- Dev & Tools -->
+      <div class="category">
+        <h2>Dev & Tools</h2>
+        <ul>
+          <li>
+            <a href="https://github.com"              ><span class="icon">GitHub</span></a
+            >
+          </li>
+          <li>
+            <a href="https://icloud.com"              ><span class="icon">iCloud</span></a
+            >
+          </li>
+          <li>
+            <a href="https://mail.google.com"              ><span class="icon">Gmail</span></a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <!-- GR · Banking -->
+      <div class="category">
+        <h2>Banking</h2>
+        <ul>
+          <li>
+            <a href="https://ebanking.eurobank.gr"              ><span class="icon">EuroBank</span></a
+            >
+          </li>
+          <li>
+            <a href="https://nbanking.nationalbank.gr"              ><span class="icon">Εθνική</span></a
+            >
+          </li>
+          <li>
+            <a href="https://alphaweb.alpha.gr"              ><span class="icon">AlphaBank</span></a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <!-- Shop -->
+      <div class="category">
+        <h2>Shop</h2>
+        <ul>
+          <li>
+            <a href="https://temu.com"              ><span class="icon">Temu</span></a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+    <footer>QuteBrowser · 2026</footer>
+  </body>
+</html>

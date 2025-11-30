@@ -1,0 +1,4 @@
+# Ignore swap files
+*.swp
+*.swo
+lazy-lock.json

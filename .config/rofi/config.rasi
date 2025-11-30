@@ -1,0 +1,169 @@
+/* ═══════════════════════════════════════════════════════════
+   Rofi Config - Catppuccin Frappe Theme
+   Grid launcher με Nerd Font icons
+   ═══════════════════════════════════════════════════════════ */
+
+configuration {
+	modi: "drun";
+	show-icons: true;
+	icon-theme: "Papirus-Dark";
+	font: "CaskaydiaCove Nerd Font 12";
+	drun-display-format: "{name}";
+	display-drun: "";
+	sidebar-mode: false;
+	hover-select: true;
+	me-select-entry: "";
+	me-accept-entry: "MousePrimary";
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Catppuccin Frappe Color Palette
+   ═══════════════════════════════════════════════════════════ */
+* {
+	/* Base colors */
+	base:      #303446;
+	mantle:    #292c3c;
+	surface0:  #414559;
+	surface1:  #51576d;
+	surface2:  #626880;
+	overlay0:  #737994;
+
+	/* Text colors */
+	text:      #c6d0f5;
+	subtext1:  #b5bfe2;
+	subtext0:  #a5adce;
+
+	/* Accent colors */
+	blue:      #8caaee;
+	lavender:  #babbf1;
+	sapphire:  #85c1dc;
+	sky:       #99d1db;
+	teal:      #81c8be;
+	green:     #a6d189;
+
+	/* Transparency */
+	bg-trans:  #303446f0;
+
+	background-color: transparent;
+	text-color: @text;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Main Window
+   ═══════════════════════════════════════════════════════════ */
+window {
+	background-color: @bg-trans;
+	border: 2px;
+	border-color: @lavender;
+	border-radius: 16px;
+	width: 55%;
+	height: 60%;
+	location: center;
+	anchor: center;
+	transparency: "real";
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Main Container
+   ═══════════════════════════════════════════════════════════ */
+mainbox {
+	children: [ "inputbar", "listview" ];
+	spacing: 25px;
+	padding: 30px 30px 20px 30px;
+	background-color: transparent;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Search Bar
+   ═══════════════════════════════════════════════════════════ */
+inputbar {
+	children: [ "entry" ];
+	spacing: 0px;
+	padding: 16px 28px;
+	margin: 0px 250px;
+	border-radius: 14px;
+	background-color: @surface0;
+	border: 2px;
+	border-color: @surface1;
+}
+
+entry {
+	placeholder: " Αναζήτηση εφαρμογών...";
+	placeholder-color: @subtext0;
+	text-color: @text;
+	cursor: text;
+}
+
+prompt {
+	enabled: false;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   App Grid
+   ═══════════════════════════════════════════════════════════ */
+listview {
+	lines: 4;
+	columns: 7;
+	fixed-height: false;
+	fixed-columns: false;
+	spacing: 10px;
+	scrollbar: false;
+	background-color: transparent;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   App Items
+   ═══════════════════════════════════════════════════════════ */
+element {
+	orientation: vertical;
+	padding: 14px 10px;
+	border-radius: 14px;
+	spacing: 8px;
+	background-color: transparent;
+}
+
+element-icon {
+	size: 80px;
+	horizontal-align: 0.5;
+	background-color: transparent;
+}
+
+element-text {
+	horizontal-align: 0.5;
+	vertical-align: 0.5;
+	text-color: @text;
+	font: "CaskaydiaCove Nerd Font 10";
+	background-color: transparent;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Selection States
+   ═══════════════════════════════════════════════════════════ */
+element selected {
+	background-color: @surface1;
+	border: 2px;
+	border-color: @blue;
+	text-color: @lavender;
+}
+
+element normal.normal {
+	background-color: transparent;
+	text-color: @text;
+}
+
+element alternate.normal {
+	background-color: transparent;
+	text-color: @text;
+}
+
+element selected.active {
+	background-color: @surface1;
+	border-color: @green;
+	text-color: @green;
+}
+
+element selected.urgent {
+	background-color: @surface1;
+	border-color: @sapphire;
+	text-color: @sapphire;
+}

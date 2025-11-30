@@ -1,0 +1,48 @@
+/* YouTube AdBlock Fix - Removes skip button and fixes player state */
+
+/* Hide the ad skip button that appears after blocking ads */
+.ytp-ad-skip-button,
+.ytp-ad-skip-button-modern,
+.ytp-ad-skip-button-container,
+button.ytp-ad-skip-button,
+button.ytp-ad-skip-button-modern {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* Hide ad overlay containers */
+.ytp-ad-player-overlay,
+.ytp-ad-player-overlay-layout,
+.ytp-ad-overlay-container {
+    display: none !important;
+}
+
+/* Hide "Video will play after ad" message */
+.ytp-ad-message-container,
+.ytp-ad-text,
+.ytp-ad-preview-container {
+    display: none !important;
+}
+
+/* Hide ad countdown timer */
+.ytp-ad-duration-remaining {
+    display: none !important;
+}
+
+/* Force video player to normal state */
+.html5-video-player.ad-showing,
+.html5-video-player.ad-interrupting {
+    background: transparent !important;
+}
+
+/* Hide all ad-related overlays */
+.video-ads,
+.ytp-ad-module,
+ytd-promoted-sparkles-web-renderer,
+ytd-display-ad-renderer,
+ytd-video-masthead-ad-v3-renderer,
+ytd-primetime-promo-renderer {
+    display: none !important;
+}

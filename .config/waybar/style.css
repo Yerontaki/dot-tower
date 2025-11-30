@@ -1,0 +1,140 @@
+@import url("./catppuccin/themes/frappe.css");
+
+* {
+  font-family: "Caskaydia Cove Nerd Font";
+  font-size: 12px;
+  min-height: 0;
+  padding-right: 2px;
+  padding-left: 2px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+#waybar {
+  background: transparent;
+  color: @lavender;
+  margin: 2px 2px;
+}
+
+#workspaces {
+  border-radius: 14px;
+  margin: 5px;
+  background-color: @surface0;
+  margin-left: 2px;
+  padding-left: 5px;
+  padding-right: 10px;
+}
+
+#workspaces button {
+  color: @lavender;
+  border-radius: 14px;
+  padding: 0.4rem;
+}
+
+#workspaces button.active {
+  color: @sky;
+  border-radius: 14px;
+}
+
+#workspaces button:hover {
+  color: @sapphire;
+  border-radius: 14px;
+  border-color: transparent;
+}
+
+button {
+  background: transparent;
+}
+
+#custom-music,
+#tray,
+#clock,
+#pulseaudio,
+#language {
+  background-color: @surface0;
+  padding: 0 0.5rem;
+  margin: 5px 3px;
+  border-radius: 14px;
+}
+
+#custom-power {
+  color: @red;
+  background-color: @surface0;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 12px;
+  padding-right: 15px;
+  margin: 5px 3px;
+  border-radius: 14px;
+}
+
+#clock {
+  color: @green;
+}
+
+#battery {
+  color: @green;
+  background-color: @surface0;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 11px;
+  padding-right: 17px;
+  margin: 5px 3px;
+  border-radius: 14px;
+}
+
+#battery.charging {
+  color: @green;
+}
+
+#battery.warning:not(.charging) {
+  color: @red;
+}
+
+#backlight {
+  color: @yellow;
+  background-color: @surface0;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 12px;
+  padding-right: 14px;
+  margin: 5px 3px;
+  border-radius: 14px;
+}
+
+#pulseaudio {
+  color: @maroon;
+  background-color: @surface0;
+  padding: 0 0.6rem;
+  margin: 5px 3px;
+  border-radius: 14px;
+}
+
+#custom-music {
+  color: @blue;
+}
+
+#language {
+  color: @lavender;
+}
+
+#language {
+  color: @lavender;
+}
+
+#temperature {
+  color: @rosewater;
+  background-color: @surface0;
+  padding-left: 8px;
+  padding-right: 9px;
+  margin: 5px 3px;
+  border-radius: 14px;
+}
+
+#temperature.critical {
+  color: @red;
+}
+
+#workspaces button.urgent {
+  color: @red;
+}

@@ -1,0 +1,21 @@
+/* Catppuccin Frappe Background για Dark Mode */
+/* Αντικατάσταση μόνο του καθαρού μαύρου #000000 με #303446 */
+
+body, html {
+    background-color: #303446 !important;
+}
+
+/* Για divs και containers που έχουν καθαρό μαύρο */
+div[style*="background-color: rgb(0, 0, 0)"],
+div[style*="background-color:#000000"],
+div[style*="background-color: #000000"],
+div[style*="background: rgb(0, 0, 0)"],
+div[style*="background:#000000"],
+div[style*="background: #000000"] {
+    background-color: #303446 !important;
+}
+
+/* Διατήρηση εικόνων, videos, canvas */
+img, video, canvas, svg, iframe {
+    background-color: transparent !important;
+}

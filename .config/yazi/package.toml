@@ -1,0 +1,59 @@
+[[plugin.deps]]
+use = "yazi-rs/plugins:mount"
+rev = "2301ff8"
+hash = "4fccaaf10c36dc2466e2438a386ff017"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:full-border"
+rev = "2301ff8"
+hash = "3996fc74044bc44144b323686f887e1"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:git"
+rev = "2301ff8"
+hash = "27ca02f49fd236b5cc7bf03c243859fe"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:smart-enter"
+rev = "2301ff8"
+hash = "56fdabc96fc1f4d53c96eb884b02a5be"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:jump-to-char"
+rev = "2301ff8"
+hash = "ce67445ebb1bf3d97b8e44f50904b2c5"
+
+[[plugin.deps]]
+use = "uhs-robert/recycle-bin"
+rev = "1762676"
+hash = "c77042b4296544a9edb4849338056039"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:zoom"
+rev = "2301ff8"
+hash = "9dee2bf990ea941ccf67df74bca45468"
+
+[[plugin.deps]]
+use = "XYenon/clipboard"
+rev = "9089f90"
+hash = "e6efc609de1b617c7e8e98efd5286221"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:smart-filter"
+rev = "2301ff8"
+hash = "bcda8eeb3f4013bae156aecabfc745e8"
+
+[[plugin.deps]]
+use = "Ape/open-with-cmd"
+rev = "433cf30"
+hash = "86e0312b01bc5762813c6c1d0517f073"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:smart-paste"
+rev = "2301ff8"
+hash = "75fd60b2df7115e0a6ca31a6a804d320"
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-mocha"
+rev = "3edeb49"
+hash = "14b111562c00eb1917fe3ca3ae9bb771"

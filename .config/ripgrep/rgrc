@@ -1,0 +1,24 @@
+# Search behavior
+--smart-case
+--hidden
+--follow
+
+# Output
+--pretty
+--color=always
+--heading
+--line-number
+--with-filename
+
+# Performance
+--max-columns=150
+--max-columns-preview
+
+# Ignore patterns
+--glob=!.git/
+--glob=!node_modules/
+--glob=!.cache/
+--glob=!*.pyc
+--glob=!__pycache__/
+--glob=!.DS_Store
+

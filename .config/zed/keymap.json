@@ -1,0 +1,139 @@
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-z": "workspace::ToggleLeftDock",
+      "ctrl-a": "workspace::ToggleRightDock",
+      "ctrl-x": "terminal_panel::Toggle",
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-j": "workspace::ActivatePaneUp",
+      "ctrl-k": "workspace::ActivatePaneDown"
+    }
+  },
+  {
+    "context": "Editor && (vim_mode == normal || vim_mode == visual)",
+    "bindings": {
+      "j": "editor::MoveUp",
+      "k": "editor::MoveDown"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      "space a a": "editor::SelectAll",
+      "space f": "editor::Format",
+      "space v": "pane::SplitVertical",
+      "space h": "pane::SplitHorizontal",
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-j": "workspace::ActivatePaneUp",
+      "ctrl-k": "workspace::ActivatePaneDown",
+      "alt-h": "vim::ResizePaneLeft",
+      "alt-l": "vim::ResizePaneRight",
+      "alt-j": "vim::ResizePaneUp",
+      "alt-k": "vim::ResizePaneDown",
+      "shift-h": "pane::ActivatePreviousItem",
+      "shift-l": "pane::ActivateNextItem",
+      "space q": "pane::CloseActiveItem",
+      "ctrl-q": "pane::CloseActiveItem",
+      "space s f": "file_finder::Toggle",
+      "space s w": "workspace::NewSearch",
+      "space s t": "buffer_search::Deploy",
+      "space s o": "file_finder::Toggle",
+      "space x": "diagnostics::Deploy",
+      "space d d": "editor::Hover",
+
+      "ctrl-x": "terminal_panel::Toggle",
+      "ctrl-z": "workspace::ToggleLeftDock",
+      "ctrl-a": "workspace::ToggleRightDock"
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-z": "workspace::ToggleLeftDock",
+      "ctrl-a": "workspace::ToggleRightDock",
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-j": "workspace::ActivatePaneUp",
+      "ctrl-k": "workspace::ActivatePaneDown",
+      "alt-h": "vim::ResizePaneLeft",
+      "alt-l": "vim::ResizePaneRight",
+      "alt-j": "vim::ResizePaneUp",
+      "alt-k": "vim::ResizePaneDown",
+      "ctrl-x": "terminal_panel::Toggle",
+      "j k": "vim::NormalBefore",
+      "escape": "terminal::ToggleViMode"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      "ctrl-z": "workspace::ToggleLeftDock",
+      "ctrl-a": "workspace::ToggleRightDock",
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-j": "workspace::ActivatePaneUp",
+      "ctrl-k": "workspace::ActivatePaneDown",
+      "alt-h": "vim::ResizePaneLeft",
+      "alt-l": "vim::ResizePaneRight",
+      "alt-j": "vim::ResizePaneUp",
+      "alt-k": "vim::ResizePaneDown",
+      "ctrl-x": "terminal_panel::Toggle"
+    }
+  },
+  {
+    "context": "ProjectPanel",
+    "bindings": {
+      "ctrl-z": "workspace::ToggleLeftDock",
+      "ctrl-a": "workspace::ToggleRightDock",
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-j": "workspace::ActivatePaneUp",
+      "ctrl-k": "workspace::ActivatePaneDown",
+      "ctrl-x": "terminal_panel::Toggle"
+    }
+  },
+  {
+      "context": "BufferSearchBar",
+      "bindings": {
+        "escape": "buffer_search::Dismiss",
+        "n": "search::SelectNextMatch",
+        "p": "search::SelectPreviousMatch"
+      }
+    },
+  {
+    "context": "ProjectSearchBar",
+    "bindings": {
+      "ctrl-z": "workspace::ToggleLeftDock",
+      "ctrl-a": "workspace::ToggleRightDock",
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-j": "workspace::ActivatePaneUp",
+      "ctrl-k": "workspace::ActivatePaneDown",
+      "alt-h": "vim::ResizePaneLeft",
+      "alt-l": "vim::ResizePaneRight",
+      "alt-j": "vim::ResizePaneUp",
+      "alt-k": "vim::ResizePaneDown",
+      "ctrl-x": "terminal_panel::Toggle",
+      "alt-q": "pane::CloseActiveItem"
+    }
+  },
+  {
+    "context": "AssistantPanel",
+    "bindings": {
+      "ctrl-z": "workspace::ToggleLeftDock",
+      "ctrl-a": "workspace::ToggleRightDock",
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-j": "workspace::ActivatePaneUp",
+      "ctrl-k": "workspace::ActivatePaneDown",
+      "alt-h": "vim::ResizePaneLeft",
+      "alt-l": "vim::ResizePaneRight",
+      "alt-j": "vim::ResizePaneUp",
+      "alt-k": "vim::ResizePaneDown",
+      "ctrl-x": "terminal_panel::Toggle"
+    }
+  }
+]

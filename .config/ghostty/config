@@ -1,0 +1,43 @@
+theme = "Catppuccin-Frappe"
+
+font-family = "CaskaydiaCove Nerd Font"
+font-size = 16
+#font-feature=-liga
+font-thicken=true
+#font-feature = -calt
+#font-feature = -dlig
+
+adjust-cell-height = 9%
+mouse-scroll-multiplier = 0.5
+
+title="Ghostty"
+window-title-font-family= "CaskaydiaCove Nerd Font"
+
+background-opacity = 0.90
+background-blur-radius = 20
+
+selection-invert-fg-bg = true
+bold-is-bright = true
+minimum-contrast = 2
+cursor-style = block
+cursor-style-blink = true
+cursor-invert-fg-bg = true
+cursor-opacity = .8
+
+shell-integration = bash
+shell-integration-features = no-cursor
+window-padding-x = 15
+window-padding-y = 10
+copy-on-select = clipboard
+
+mouse-hide-while-typing = true
+scrollback-limit = 10000000
+
+desktop-notifications = false
+quit-after-last-window-closed = true
+confirm-close-surface = false
+window-new-tab-position = end
+window-save-state = never
+window-colorspace = display-p3
+window-padding-x = 0
+keybind = shift+enter=text:\x1b\r
